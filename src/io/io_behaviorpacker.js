@@ -1,8 +1,6 @@
 IO.BehaviorPacker = new (function() {
 	var that = this;
 
-	var path = require('path');
-
 	this.loadBehaviorCode = function(callback) {
 		var names = Behavior.createNames();
 		var package_name = names.rosnode_name;

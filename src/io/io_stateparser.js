@@ -1,9 +1,6 @@
 IO.StateParser = new (function() {
 	var that = this;
-	var os = require('os');
-	var spawn = require('child_process').spawn;
 	var python = 'python' + (process.env.ROS_PYTHON_VERSION != undefined? process.env.ROS_PYTHON_VERSION : '');
-	var crypto = require('crypto');
 	var md5 = str => crypto.createHash('md5').update(str).digest('hex');
 
 ////////////////////////////////

@@ -1,7 +1,6 @@
 IO.BehaviorLoader = new (function() {
 	var that = this;
 
-	var path = require('path');
 
 
 	var parseCode = function(file_content, manifest_data, callback) {

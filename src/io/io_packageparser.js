@@ -1,9 +1,6 @@
 IO.PackageParser = new (function() {
 	var that = this;
 
-	var fs = require('fs');
-	var path = require('path');
-
 	var dom_parser = new DOMParser();
 	var watched_states = {};
 

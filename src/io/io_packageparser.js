@@ -1,5 +1,7 @@
 IO.PackageParser = new (function() {
 	var that = this;
+const path = require('path');
+const fs = require('fs');
 
 	var dom_parser = new DOMParser();
 	var watched_states = {};
@@ -61,6 +63,7 @@ IO.PackageParser = new (function() {
 
 	var checkForRelevance = function(pkg_path, callback) {
 		var package_xml_path = path.join(pkg_path, 'package.xml');
+const fs = require('fs');
 		
 		try {
 			if (fs.existsSync(package_xml_path)) {
@@ -76,6 +79,7 @@ IO.PackageParser = new (function() {
 			}
 		} catch (e) {
 			T.logWarn("Skipping package "+pkg_path+" due to a malformed package.xml");
+			T.logWarn(e.name+" "+e.message);
 			callback(undefined, undefined);
 		}
 	}

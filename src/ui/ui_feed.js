@@ -132,7 +132,9 @@ UI.Feed = new (function() {
 	}
 
 	this.initialize = function() {
-		document.getElementById("flexbe_version_label").innerText = chrome.runtime.getManifest().version;
+		//const { app, BrowserWindow } = require('electron')
+		//document.getElementById("flexbe_version_label").innerText = app.manifest.version;
+		document.getElementById("flexbe_version_label").innerText = "2.4.1";
 
 		requestLatestVersion(
 			displayVersionIndicator

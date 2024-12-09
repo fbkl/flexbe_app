@@ -394,7 +394,7 @@ UI.Settings = new (function() {
 
 
 	this.getVersion = function() {
-		return app.manifest.version;
+		return "2.4.1";
 	}
 
 

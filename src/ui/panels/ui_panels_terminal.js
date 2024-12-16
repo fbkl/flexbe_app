@@ -1,6 +1,5 @@
 UI.Panels.Terminal = new (function() {
 	var that = this;
-	const fs = require('fs');
 	var debug_mode = false;
 	var is_active = false;
 

@@ -1,7 +1,8 @@
 IO.PackageParser = new (function() {
 	var that = this;
-const path = require('path');
-const fs = require('fs');
+
+	var path = require('path');
+	var fs = require('fs');
 
 	var dom_parser = new DOMParser();
 	var watched_states = {};
@@ -62,8 +63,9 @@ const fs = require('fs');
 	}
 
 	var checkForRelevance = function(pkg_path, callback) {
+
+
 		var package_xml_path = path.join(pkg_path, 'package.xml');
-const fs = require('fs');
 		
 		try {
 			if (fs.existsSync(package_xml_path)) {

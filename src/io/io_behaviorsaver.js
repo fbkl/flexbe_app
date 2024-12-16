@@ -1,6 +1,8 @@
 IO.BehaviorSaver = new (function() {
 	var that = this;
 
+	const path = require('path');
+
 	var storeBehaviorCode = function(generated_code, callback) {
 		var create_callback = function(folder) {
 			IO.Filesystem.createFile(folder, names.file_name, generated_code, function() {
@@ -33,7 +35,6 @@ IO.BehaviorSaver = new (function() {
 			} else {
 				create_callback(folder_path);
 			}
-			
 		});
 	}
 

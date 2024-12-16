@@ -1,5 +1,6 @@
 IO.BehaviorPacker = new (function() {
 	var that = this;
+	const path = require('path');
 
 	this.loadBehaviorCode = function(callback) {
 		var names = Behavior.createNames();

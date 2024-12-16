@@ -1,6 +1,9 @@
 IO.PackageGenerator = new (function() {
 	var that = this;
 
+	var path = require('path');
+	var fs = require('fs');
+
 	var generateSetupPy = function(pkg_name) {
 		return "#!/usr/bin/env python\n" +
 			"\n" +

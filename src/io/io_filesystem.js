@@ -1,6 +1,9 @@
 IO.Filesystem = new (function() {
 	var that = this;
 
+	var path = require('path');
+	var fs = require('fs');
+
 	var toArray = function (list) {
 		return Array.prototype.slice.call(list || [], 0);
 	}

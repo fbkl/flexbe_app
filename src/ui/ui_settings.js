@@ -2,7 +2,8 @@ UI.Settings = new (function() {
 	var that = this;
 
 	const app = require('electron/main')
-	const fs = require('fs');
+	var fs = require('fs');
+	var path = require('path');
 
 	var ros_pkg_cache;
 	var state_pkg_cache;
@@ -58,7 +59,7 @@ UI.Settings = new (function() {
 			'synthesis_type': synthesis_type,
 			'synthesis_system': synthesis_system
 		};
-		fs.writeFileSync('data.json', JSON.stringify(data));
+		fs.writeFileSync('/tmp/data.json', JSON.stringify(data));
 		displaySettingsHints();
 	}
 
@@ -89,8 +90,8 @@ UI.Settings = new (function() {
 			'synthesis_type': 'flexbe_msgs/BehaviorSynthesisAction',
 			'synthesis_system': ''
 			}
-		if (fs.existsSync('data.json'))
-		{items = JSON.parse(fs.readFileSync('data.json'));
+		if (fs.existsSync('/tmp/data.json'))
+		{items = JSON.parse(fs.readFileSync('data.json'));}
 			ros_pkg_cache = items.ros_pkg_cache;
 			state_pkg_cache = items.state_pkg_cache;
 			behavior_pkg_cache = items.behavior_pkg_cache;
@@ -151,7 +152,7 @@ UI.Settings = new (function() {
 			}
 			IO.PackageParser.discover(ros_pkg_cache, that.packageDiscoverCallback);
 
-			that.setRosProperties('');}
+			that.setRosProperties('');
 	}
 
 	this.packageDiscoverCallback = function(updated_cache, discovered_state_pkgs, discovered_behavior_pkgs) {
@@ -394,7 +395,7 @@ UI.Settings = new (function() {
 
 
 	this.getVersion = function() {
-		return "2.4.1";
+		return app.getVersion();
 	}
 
 

@@ -1,10 +1,4 @@
 const { app, BrowserWindow } = require('electron')
-const path = require('path');
-const fs = require('fs');
-const os = require('os');
-const process = require('process');
-const spawn = require('child_process').spawn;
-const crypto = require('crypto');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -28,4 +22,9 @@ app.whenReady().then(() => {
 app.on('open', () => {
     createWindow();
 });
+
+app.on('close', () => {
+    process.exit();
+});
+
 

@@ -132,7 +132,7 @@ UI.Feed = new (function() {
 	}
 
 	this.initialize = function() {
-		document.getElementById("flexbe_version_label").innerText = require('electron').remote.app.getVersion();
+		document.getElementById("flexbe_version_label").innerText = "9.9.9";
 
 		requestLatestVersion(
 			displayVersionIndicator

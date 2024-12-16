@@ -1,7 +1,7 @@
 UI.Settings = new (function() {
 	var that = this;
 
-	const app = require('electron/main')
+	const app = require('electron')
 	var fs = require('fs');
 	var path = require('path');
 
@@ -90,8 +90,14 @@ UI.Settings = new (function() {
 			'synthesis_type': 'flexbe_msgs/BehaviorSynthesisAction',
 			'synthesis_system': ''
 			}
-		if (fs.existsSync('/tmp/data.json'))
-		{items = JSON.parse(fs.readFileSync('data.json'));}
+		try{
+			if (fs.existsSync('/tmp/data.json'))
+				{
+					items = JSON.parse(fs.readFileSync('data.json'));
+				}
+		} catch (err) {
+				T.logError('Failed to load initial configuration: ' + err);
+		}
 			ros_pkg_cache = items.ros_pkg_cache;
 			state_pkg_cache = items.state_pkg_cache;
 			behavior_pkg_cache = items.behavior_pkg_cache;
@@ -395,7 +401,7 @@ UI.Settings = new (function() {
 
 
 	this.getVersion = function() {
-		return app.getVersion();
+		return "9.9.9";
 	}
 
 

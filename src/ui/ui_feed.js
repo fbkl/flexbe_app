@@ -1,6 +1,5 @@
 UI.Feed = new (function() {
 	var that = this;
-	var app = require('electron/main');
 
 	var requestLatestVersion = function(callback) {
 		var xhr = new XMLHttpRequest();
@@ -133,7 +132,7 @@ UI.Feed = new (function() {
 	}
 
 	this.initialize = function() {
-		document.getElementById("flexbe_version_label").innerText = app.getVersion();
+		document.getElementById("flexbe_version_label").innerText = require('electron').remote.app.getVersion();
 
 		requestLatestVersion(
 			displayVersionIndicator

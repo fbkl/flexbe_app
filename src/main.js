@@ -18,6 +18,7 @@ function createWindow() {
       }
   });
   win.loadFile('src/window.html');
+  win.setMenuBarVisibility(false) //idk the original didn't have one either
 }
 
 app.whenReady().then(() => {

@@ -30,6 +30,7 @@ msg_class = getattr(msg_module, msg_name)
 pub = rospy.Publisher(topic, msg_class, queue_size=10, latch=latched)
 
 while not rospy.is_shutdown():
+	rospy.sleep(0.001)
 	json_str = sys.stdin.readline()
 	try:
 		msg_dict = json.loads(json_str)
@@ -40,6 +41,8 @@ while not rospy.is_shutdown():
 		if json_str != '':
 			sys.stderr.write("ignoring input %s> %s" % (json_str, str(e)))
 			sys.stderr.flush();
+		else:
+			sys.stderr.write("i think i am breaking because of this dude %s> %s" % (json_str, str(e)))
 	`;
 // END Python implementation
 //////////////////////////////

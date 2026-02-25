@@ -26,13 +26,18 @@ IO.BehaviorLoader = new (function() {
 			return;
 		}
 
-		var error_string = Checking.checkBehavior();
-		if (error_string != undefined) {
-			T.logError("The loaded behavior contains errors! Please fix and save:");
-			T.logError(error_string);
-			RC.Controller.signalChanged();
+		//console.trace("THIS IS THE TRACE SO WE CAN FIGURE OUT WHAT IS CRASHING!!");
+		try{
+			var error_string = Checking.checkBehavior();
+			if (error_string != undefined) {
+				T.logError("The loaded behavior contains errors! Please fix and save:");
+				T.logError(error_string);
+				RC.Controller.signalChanged();
+			}
+			callback(error_string);
+		} catch (e) {
+			console.error("Checking.checkBehavior threw an error", e);
 		}
-		callback(error_string);
 	}
 
 	var applyParsingResult = function(result, manifest) {

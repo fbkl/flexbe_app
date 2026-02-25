@@ -93,7 +93,7 @@ UI.Settings = new (function() {
 		try{
 			if (fs.existsSync('/tmp/data.json'))
 				{
-					items = JSON.parse(fs.readFileSync('data.json'));
+					items = JSON.parse(fs.readFileSync('/tmp/data.json'));
 				}
 		} catch (err) {
 				T.logError('Failed to load initial configuration: ' + err);

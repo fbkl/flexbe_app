@@ -14,3 +14,4 @@ if [ ! -x $ELECTRON ]; then
 fi
 
 "$ELECTRON" --password-store=basic $ROOT_PATH --remote-debugging-port=9000 --remote-allow-origins=http://localhost:9000 "$@"
+#"$ELECTRON" --password-store=basic $ROOT_PATH "$@"
